@@ -1,7 +1,7 @@
-#include <vector>
-#include <unordered_set>
-#include <stdint.h>
 #include <iostream>
+#include <stdint.h>
+#include <unordered_set>
+#include <vector>
 /*
 217. Contains Duplicate
 
