@@ -9,7 +9,7 @@ Given an integer array nums, return true if any value appears at least twice
 in the array, and return false if every element is distinct.
 */
 
-bool containsDuplicate(std::vector<int32_t>& nums);
+bool containsDuplicate(const std::vector<int32_t>& nums);
 
 int main(){
     auto test_1 = std::vector<int32_t>{1, 2, 3, 1};
@@ -23,9 +23,9 @@ int main(){
     return 0;
 }
 
-bool containsDuplicate(std::vector<int32_t>& nums) {
+bool containsDuplicate(const std::vector<int32_t>& nums) {
     auto num_set = std::unordered_set<int32_t>{};
-    for(auto& num: nums)
+    for(const auto& num: nums)
     {
         if(num_set.count(num))
         {
