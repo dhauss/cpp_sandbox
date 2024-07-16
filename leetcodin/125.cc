@@ -54,7 +54,7 @@ uint32_t strip_and_lower(std::string& s)
     */
     uint32_t end = 0;
 
-    for(const char& c: s)
+    for(char& c: s)
     {
         if(isalnum(c)){
             s[end] = tolower(c);
