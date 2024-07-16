@@ -10,8 +10,8 @@ the same forward and backward. Alphanumeric characters include letters
 and numbers.
 */
 
-bool isPalindrome(const std::string& s);
-std::string strip_and_lower(const std::string& s);
+bool isPalindrome(std::string& s);
+uint32_t strip_and_lower(std::string& s);
 
 int main()
 {
@@ -26,15 +26,14 @@ int main()
     return 0;
 }
 
-bool isPalindrome(const std::string& s) 
+bool isPalindrome(std::string& s) 
 {
-    auto s_clean = strip_and_lower(s);
     int32_t l = 0;
-    int32_t r = s_clean.size() - 1;
+    int32_t r = strip_and_lower(s) - 1;
 
     while(l < r)
     {
-        if(s_clean[l] != s_clean[r]){
+        if(s[l] != s[r]){
             return false;
         }
         ++l;
@@ -44,16 +43,24 @@ bool isPalindrome(const std::string& s)
     return true;
 }
 
-std::string strip_and_lower(const std::string& s)
+uint32_t strip_and_lower(std::string& s)
 {
-    auto s_clean = std::string{};
+    /*
+    strips non-alphanumeric characters from s and converts to lowercase
+    alters original string in place by placing lowercase, alphanumeric chars
+    at beginning of original string
+
+    returns: index immediately after the end of clean string, similar to str.size()
+    */
+    uint32_t end = 0;
 
     for(const char& c: s)
     {
         if(isalnum(c)){
-            s_clean += tolower(c);
+            s[end] = tolower(c);
+            ++end;
         }
     }
     
-    return s_clean;
+    return end;
 }
