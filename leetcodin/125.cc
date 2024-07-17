@@ -1,5 +1,5 @@
 #include <iostream>
-#include <stdint.h>
+#include <cstdint>
 #include <string>
 /*
 125. Valid Palindrome
@@ -28,8 +28,8 @@ int main()
 
 bool isPalindrome(std::string& s) 
 {
-    int32_t l = 0;
-    int32_t r = strip_and_lower(s) - 1;
+    std::int32_t l = 0;
+    std::int32_t r = strip_and_lower(s) - 1;
 
     while(l < r)
     {
@@ -43,7 +43,7 @@ bool isPalindrome(std::string& s)
     return true;
 }
 
-uint32_t strip_and_lower(std::string& s)
+std::uint32_t strip_and_lower(std::string& s)
 {
     /*
     strips non-alphanumeric characters from s and converts to lowercase
@@ -52,7 +52,7 @@ uint32_t strip_and_lower(std::string& s)
 
     returns: index immediately after the end of clean string, similar to str.size()
     */
-    uint32_t end = 0;
+    std::uint32_t end = 0;
 
     for(char& c: s)
     {
