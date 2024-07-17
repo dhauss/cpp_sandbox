@@ -1,5 +1,5 @@
 #include <iostream>
-#include <stdint.h>
+#include <cstdint>
 #include <unordered_set>
 #include <vector>
 /*
@@ -8,6 +8,9 @@
 Given an integer array nums, return true if any value appears at least twice
 in the array, and return false if every element is distinct.
 */
+
+using std::int32_t;
+using std::uint32_t;
 
 bool containsDuplicate(const std::vector<int32_t>& nums);
 
