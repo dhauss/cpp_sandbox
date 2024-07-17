@@ -29,9 +29,9 @@ int main()
     auto test_3 = std::vector<std::int32_t>{3, 3};
     auto test_3_target = std::int32_t{6};
 
-    std::cout << std::boolalpha << two_sum(test_1, test_1_target) << '\n';
-    std::cout << std::boolalpha << two_sum(test_2, test_2_target) << '\n';
-    std::cout << std::boolalpha << two_sum(test_3, test_3_target) << '\n';
+    std::cout << two_sum(test_1, test_1_target) << '\n';
+    std::cout << two_sum(test_2, test_2_target) << '\n';
+    std::cout << two_sum(test_3, test_3_target) << '\n';
 
     return 0;
 }
