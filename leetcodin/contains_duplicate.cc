@@ -28,10 +28,10 @@ int main(){
 
 bool contains_duplicate(const std::vector<int32_t>& nums) {
     /*
-    Intuition: we initialize a hash map to store all numbers we
+    Intuition: we initialize a hash set to store all numbers we
     see for the first time while iterating through the input array. We check
     each element of the array to see if it has already been stored in the
-    hash map, and if it has then we have found a duplicate element and return
+    hash set, and if it has then we have found a duplicate element and return
     true. If we iterate through the entire input array without finding a duplicate,
     we return false.
 
