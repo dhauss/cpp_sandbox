@@ -27,6 +27,19 @@ int main(){
 }
 
 bool contains_duplicate(const std::vector<int32_t>& nums) {
+    /*
+    Intuition: we initialize a hash map to store all numbers we
+    see for the first time while iterating through the input array. We check
+    each element of the array to see if it has already been stored in the
+    hash map, and if it has then we have found a duplicate element and return
+    true. If we iterate through the entire input array without finding a duplicate,
+    we return false.
+
+    Time/Space Analysis: We iterate at most once through the input array, so 
+    O(n) time complexity. Also O(n) space complexity, as in the worst case
+    there are no duplicates and we store the entire input array in the
+    num_set hash map.
+    */
     auto num_set = std::unordered_set<int32_t>{};
     for(const auto& num: nums)
     {
