@@ -32,6 +32,32 @@ int main(){
 
 std::vector<std::vector<std::string>> group_anagrams(const std::vector<std::string>& strs)
 {
+    /*
+    Intuition:
+    We initialize a hash map to store the sorted version of each string
+    as a key. By sorting the string, we ensure that each anagram will be stored in the same
+    bucket. The value will correspond to the index of the 2D vector of strings returned
+    as a result.
+    
+    While iterating through the input array. whenever we see a unique anagram for the first
+    time, we add it to the sorted_word_map hash map, and set cur_i as the value before
+    incrementing cur_i for the next unique anagram. We also initialize a vector of strings
+    with the original string to add to the 2D result vector.
+
+    If we find an anagram that has been seen before, we find its first index in the 2D
+    results vector through the sorted_word_map hash map and use that index to append the
+    original string to its anagram's vector within the 2D results vector.
+
+    Time/Space Analysis:
+    As we iterate through the original vector exactly once and all initialization, query,
+    and append operations are constant operations, the bottleneck is in sorting each string.
+    This results in O(n log n) time complexity, where n is really the number of char's
+    in the input vector.
+
+    The 2D res vector can store references to the original string, but the sorted_word_map
+    necessarily holds sorted copies of the original strings. In the worst case each string
+    will have a unique anagram, so that this algorithm necessarily uses O(n) space.
+    */
     auto sorted_word_map = std::unordered_map<std::string, std::uint32_t>{};
     auto res = std::vector<std::vector<std::string>>{};
     auto cur_i = std::uint32_t{0};
@@ -48,8 +74,8 @@ std::vector<std::vector<std::string>> group_anagrams(const std::vector<std::stri
         }
         else
         {
-            sorted_word_map.insert({sorted_str, cur_i});
             res.push_back(std::vector<std::string>{str});
+            sorted_word_map.insert({sorted_str, cur_i});
             ++cur_i;
         }
     }
