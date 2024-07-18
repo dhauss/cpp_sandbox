@@ -15,7 +15,7 @@ typically using all the original letters exactly once.
 
 std::vector<std::vector<std::string>> group_anagrams(const std::vector<std::string>& strs);
 
-template <typename T>
+template <typename T> // overload << for convenience
 std::ostream& operator<<(std::ostream& os, const std::vector<std::vector<T>>& vector);
 
 int main(){
@@ -26,7 +26,6 @@ int main(){
     std::cout << group_anagrams(test_1) << '\n';
     std::cout << group_anagrams(test_2) << '\n';
     std::cout << group_anagrams(test_3) << '\n';
-
 
     return 0;
 }
