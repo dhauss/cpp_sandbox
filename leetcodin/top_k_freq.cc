@@ -43,10 +43,12 @@ std::vector<int> top_k_frequent(std::vector<std::int32_t>& nums, std::int32_t k)
             count_map[num] = 1;
         }
     }
+
     for(const auto& pair: count_map)
     {
         count_vec[pair.second - 1].push_back(pair.first); // index - 1 to account for 0-indexing
     }
+    
     while(k)
     {
         while(count_vec[end].size() && k){
