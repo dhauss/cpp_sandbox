@@ -38,6 +38,23 @@ int main()
 
 std::vector<std::int32_t> two_sum(std::vector<std::int32_t>& nums, std::int32_t target)
 {
+    /*
+    Intuition:
+    We use a hash map to store numbers we have already seen while iterating
+    through the input array. The input numbers is stored as the key, and its index stored
+    as the value. When we consider a new number, we use the target value to calculate what
+    number is required to add to the current number in order to reach our target. We
+    check the hash map of seen numbers and their indexes, and if that required number
+    is contained in the hash map, we retrieve its index to return along with the current
+    number's index
+
+    Time/Space Analysis:
+    We iterate through the input array at most exactly once, and given all query and
+    insertion methods are constant time operations, the algorithm is O(n).
+
+    We create a hash map that in the worst case contains all numbers from the input
+    array and their indexes, giving us a space usage of O(n)
+    */
     auto num_map = std::unordered_map<std::int32_t, std::int32_t>{};
     for(std::int32_t i = 0; i < nums.size(); i++)
     {
