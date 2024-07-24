@@ -1,7 +1,8 @@
 #include <cstdint>
 #include <iostream>
 
-struct ListNode {
+struct ListNode
+{
     int val;
     ListNode *next;
     ListNode() : val(0), next(nullptr) {}
@@ -68,9 +69,11 @@ void test_solutions(ListNode* head)
     // helper function to test iterative and recursive solutions
     std::cout << "Original Array\n";
     print_ll(head);
+
     std::cout << "Reversed Array (iterative)\n";
     head = reverse_list_iter(head);
     print_ll(head);
+
     std::cout << "Reversed Once More! (recursive)\n";
     head = reverse_list_rec(head);
     print_ll(head);
@@ -80,6 +83,7 @@ ListNode* build_ll(std::uint32_t start, std::uint32_t end)
 {
     // helper function to build linked lists with consecutive vals
     ListNode* head = new ListNode(start);
+    
     ListNode* temp = head;
     for(std::uint32_t i = ++start; i <= end; i++)
     {
