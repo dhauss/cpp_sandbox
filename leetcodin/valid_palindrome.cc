@@ -1,5 +1,6 @@
-#include <iostream>
 #include <cstdint>
+#include <cassert>
+#include <iostream>
 #include <string>
 /*
 125. Valid Palindrome
@@ -19,6 +20,10 @@ int main()
     auto test_1 = std::string{"A man, a plan, a canal: Panama"};
     auto test_2 = std::string{"race a car"};
     auto test_3 = std::string{" "};
+
+    assert(is_palindrome_final(test_1));
+    assert(!is_palindrome_final(test_2));
+    assert(is_palindrome_final(test_3));
 
     std::cout << std::boolalpha << is_palindrome_final(test_1) << '\n';
     std::cout << std::boolalpha << is_palindrome_final(test_2) << '\n';

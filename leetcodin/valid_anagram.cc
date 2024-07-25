@@ -1,3 +1,4 @@
+#include <cassert>
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -22,6 +23,10 @@ int main()
 
     auto test_3s = std::string{""};
     auto test_3t = std::string{" "};
+
+    assert(is_anagram(test_1s, test_1t));
+    assert(!is_anagram(test_2s, test_2t));
+    assert(!is_anagram(test_3s, test_3t));
 
     std::cout << std::boolalpha << is_anagram(test_1s, test_1t) << '\n';
     std::cout << std::boolalpha << is_anagram(test_2s, test_2t) << '\n';
