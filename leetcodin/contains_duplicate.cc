@@ -1,5 +1,6 @@
-#include <iostream>
 #include <cstdint>
+#include <cassert>
+#include <iostream>
 #include <unordered_set>
 #include <vector>
 /*
@@ -18,6 +19,10 @@ int main(){
     auto test_1 = std::vector<int32_t>{1, 2, 3, 1};
     auto test_2 = std::vector<int32_t>{1, 2, 3, 4};
     auto test_3 = std::vector<int32_t>{1, 1, 1, 3, 3, 4, 3, 2, 4, 2};
+
+    assert(contains_duplicate(test_1));
+    assert(!contains_duplicate(test_2));
+    assert(contains_duplicate(test_3));
 
     std::cout << std::boolalpha << contains_duplicate(test_1) << '\n';
     std::cout << std::boolalpha << contains_duplicate(test_2) << '\n';
