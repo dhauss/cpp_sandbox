@@ -1,17 +1,23 @@
 #include <cstdint>
 #include <iostream>
-#include "ll.h"
+#include "LL.h"
 
-ListNode* reverse_list_iter(ListNode* head);
-ListNode* reverse_list_rec(ListNode* head);
-void test_solutions(ListNode* test);
+/*
+206. Reverse Linked List
+
+Given the head of a singly linked list, reverse the list, and return the reversed list.
+*/
+
+LLUtil::ListNode* reverse_list_iter(LLUtil::ListNode* head);
+LLUtil::ListNode* reverse_list_rec(LLUtil::ListNode* head);
+void test_solutions(LLUtil::ListNode* test);
 
 int main()
 {
-    ListNode* test_1 = LLUtil::build_ll(1, 5);
-    ListNode* test_2 = LLUtil::build_ll(1, 2);
-    ListNode* test_3 = LLUtil::build_ll(0, 0);
-    ListNode* test_4 = nullptr;
+    LLUtil::ListNode* test_1 = LLUtil::build_ll(1, 5);
+    LLUtil::ListNode* test_2 = LLUtil::build_ll(1, 2);
+    LLUtil::ListNode* test_3 = LLUtil::build_ll(0, 0);
+    LLUtil::ListNode* test_4 = nullptr;
 
     test_solutions(test_1);
     test_solutions(test_2);
@@ -27,12 +33,12 @@ int main()
 }
 
 
-ListNode* reverse_list_iter(ListNode* node)
+LLUtil::ListNode* reverse_list_iter(LLUtil::ListNode* node)
 {
-    ListNode* cur_prev = nullptr;
+    LLUtil::ListNode* cur_prev = nullptr;
     while(node)
     {
-        ListNode* temp_node = node;
+        LLUtil::ListNode* temp_node = node;
         node = node->next;
         temp_node->next = cur_prev;
         cur_prev = temp_node;
@@ -41,21 +47,21 @@ ListNode* reverse_list_iter(ListNode* node)
     return cur_prev;
 }
 
-ListNode* reverse_list_rec(ListNode* node)
+LLUtil::ListNode* reverse_list_rec(LLUtil::ListNode* node)
 {
     if(!node || !node->next)
     {
         return node;
     }
 
-    ListNode* head = reverse_list_rec(node->next);
+    LLUtil::ListNode* head = reverse_list_rec(node->next);
     node->next->next = node;
     node->next = nullptr;
 
     return head;
 }
 
-void test_solutions(ListNode* head)
+void test_solutions(LLUtil::ListNode* head)
 {
     // helper function to test iterative and recursive solutions
     std::cout << "Original Array\n";
