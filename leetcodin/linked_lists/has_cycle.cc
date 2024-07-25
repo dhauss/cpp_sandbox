@@ -61,6 +61,7 @@ bool has_cycle(LLUtil::ListNode* head)
             return true;
         }
     }
+    
     return false;  
 }
 
