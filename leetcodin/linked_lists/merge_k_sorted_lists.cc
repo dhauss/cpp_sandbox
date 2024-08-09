@@ -1,6 +1,7 @@
 #include <cstdint>
 #include <iostream>
 #include <vector>
+
 #include "LLUtil.h"
 /*
 23. Merge k Sorted Lists
@@ -42,6 +43,7 @@ int main()
 
     return 0;
 }
+
 LLUtil::ListNode* merge_k_lists(std::vector<LLUtil::ListNode*>& lists)
 {
     if(lists.size() < 1)
