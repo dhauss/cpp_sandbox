@@ -37,6 +37,10 @@ int main()
     std::cout << "\nTest 3:\n";
     LLUtil::print_ll(test_3);
 
+    test_1 = LLUtil::destroy_ll(test_1);
+    test_2 = LLUtil::destroy_ll(test_2);
+    test_3 = LLUtil::destroy_ll(test_3);
+
     return 0;
 }
 
